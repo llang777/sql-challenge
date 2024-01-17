@@ -1,0 +1,42 @@
+Tables and Key Relationships
+
+    Employees Table
+        emp_no (Primary Key)
+        emp_title_id (Foreign Key to Titles table)
+        birth_date
+        first_name
+        last_name
+        sex
+        hire_date
+
+    Departments Table
+        dept_no (Primary Key)
+        dept_name
+
+    Dept_Emp Table (Associates employees with departments)
+        emp_no (Foreign Key to Employees table)
+        dept_no (Foreign Key to Departments table)
+        Primary Key (emp_no, dept_no)
+
+    Dept_Manager Table (Tracks department managers)
+        emp_no (Foreign Key to Employees table)
+        dept_no (Foreign Key to Departments table)
+        Primary Key (emp_no, dept_no)
+
+    Titles Table
+        title_id (Primary Key)
+        title
+
+    Salaries Table (Assuming you have this table)
+        emp_no (Foreign Key to Employees table)
+        salary
+        Primary Key (emp_no, salary)
+
+Relationships
+
+    Employees to Titles: One-to-Many (One title can be held by many employees)
+    Employees to Dept_Emp: One-to-Many (One employee can work in many departments over time, but at one instance, usually in one department)
+    Departments to Dept_Emp: One-to-Many (One department can have many employees)
+    Employees to Dept_Manager: One-to-Many (One employee can manage many departments, though typically it's one)
+    Departments to Dept_Manager: One-to-Many (One department can have many managers over time, but usually one at a time)
+    Employees to Salaries: One-to-Many (An employee can have many salary records over time)
